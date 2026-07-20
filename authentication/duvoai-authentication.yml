@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/duvoai-openapi-original.json
+docs: https://www.duvo.ai/auth.md
+summary:
+  types:
+  - http
+  - oauth2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    Workspace-issued API key presented as `Authorization: Bearer <token>`.
+    Keys are provisioned through Duvo customer onboarding (no self-serve
+    registration) and stored via `duvo login` or the `DUVO_API_KEY`
+    environment variable.
+  header: 'Authorization: Bearer <token>'
+  sources:
+  - openapi/duvoai-openapi-original.json
+- name: enterpriseOAuth
+  type: oauth2
+  scheme: clientCredentials
+  description: >-
+    Enterprise workspaces with OAuth enabled request an access token from the
+    configured authorization server and present it as
+    `Authorization: Bearer <access_token>`. Authorization-server metadata is
+    discoverable at the RFC 8414 well-known endpoint.
+  authorization_server: https://login.duvo.ai/
+  well_known: https://login.duvo.ai/.well-known/oauth-authorization-server
+  token_endpoint: https://login.duvo.ai/oauth/token
+  sources:
+  - docs:https://www.duvo.ai/auth.md
+  - well-known/duvoai-oauth-authorization-server.json
+notes:
+- 401 indicates a credential problem; 403 signals insufficient scope or policy denial (error code `insufficient_scope`).
+- Scope reference captured in scopes/duvoai-scopes.yml.
