@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/duvoai-openapi-original.json
+docs: https://www.duvo.ai/api-reference.md
+versioning:
+  scheme: uri-path
+  current: v2
+  note: All documented operations are under /v2/.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No published deprecation policy or RFC 8594 Sunset-header support found; two operations are flagged deprecated in the OpenAPI.
+status_page: null
+sla:
+  url: null
+deprecated_operations:
+- openapi/duvoai-openapi-original.json#bulkDelegateCases
+- openapi/duvoai-openapi-original.json#bulkRetryCases

@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.duvo.ai/auth.md
+docs: https://www.duvo.ai/auth.md
+note: >-
+  The published OpenAPI declares only an `http bearer` (API-key) scheme, but
+  Duvo documents enterprise OAuth 2.0 client-credentials with a scoped access
+  model in auth.md and the agent-discovery card
+  (well-known/duvoai-agent.json). Scopes below are captured verbatim from those
+  sources. Standard OIDC scopes (openid, profile, email, offline_access, ...)
+  are additionally advertised at login.duvo.ai/.well-known/oauth-authorization-server.
+authorization_server: https://login.duvo.ai/
+token_endpoint: https://login.duvo.ai/oauth/token
+flows:
+- flow: clientCredentials
+  tokenUrl: https://login.duvo.ai/oauth/token
+scopes:
+- scope: runs:read
+  description: Inspect run status, messages, tool calls, and audit events.
+- scope: runs:write
+  description: Start, pause, resume, or replay runs.
+- scope: queues:write
+  description: Create and update queue cases.
+- scope: approvals:write
+  description: Respond to human approval requests.
+- scope: files:read
+  description: Read files attached to authorized runs or cases.
+- scope: sandboxes:write
+  description: Request governed browser, file, or desktop execution.
+- scope: webhooks:manage
+  description: Manage webhook subscriptions.
+- scope: mcp:call
+  description: Invoke the hosted Duvo MCP surface for approved workspaces.

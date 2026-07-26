@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: searched
+source: https://registry.npmjs.org/@duvoai/cli
+packages:
+- language: javascript
+  registry: npm
+  name: "@duvoai/cli"
+  url: https://www.npmjs.com/package/@duvoai/cli
+  install: npm install -g @duvoai/cli
+  version: 1.31.0
+  official: true
+  kind: cli
+  description: Command-line interface for the Duvo public API (requires Node.js 22.22+).
+notes:
+- No first-party server-side SDK library found on npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, or crates.io as of this pass; the officially published client is the CLI.
+- CLI command surface captured in cli/duvoai-cli.yml.

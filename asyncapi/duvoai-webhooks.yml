@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.duvo.ai/webhooks.md
+type: Webhooks
+spec_type: none
+note: >-
+  Duvo documents a webhook event surface but does not publish an AsyncAPI
+  document. Captured here as a webhook catalog. Delivery is JSON over HTTP;
+  consumers verify the Duvo HMAC signature header against the raw request body
+  with the workspace webhook secret, reject missing signatures / stale
+  timestamps / mismatched HMAC, and retry transient 5xx responses idempotently.
+delivery:
+  transport: https-post
+  content_type: application/json
+  signing:
+    method: HMAC
+    header: Duvo signature header
+    secret: workspace webhook secret
+    verify: Verify signature over the raw request body; reject stale timestamps and mismatched HMAC.
+  retries: Retried for transient 5xx; consumers must be idempotent (retries can duplicate events).
+events:
+- name: run.started
+  group: Runs
+- name: run.paused
+  group: Runs
+- name: run.completed
+  group: Runs
+- name: run.failed
+  group: Runs
+- name: run.message.created
+  group: Runs
+- name: run.tool_call.completed
+  group: Runs
+- name: run.file.created
+  group: Runs
+- name: human_request.created
+  group: Human requests
+- name: human_request.responded
+  group: Human requests
+- name: queue.case.created
+  group: Queues
+- name: queue.case.claimed
+  group: Queues
+- name: queue.case.completed
+  group: Queues
+- name: assignment.build.published
+  group: Integrations
+- name: connection.updated
+  group: Integrations
+- name: connection.action_required
+  group: Integrations

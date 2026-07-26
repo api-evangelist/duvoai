@@ -1,0 +1,43 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Duvo Public API
+  version: 1.0.0
+extends: openapi/duvoai-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-artifacts:
+      authentication: authentication/duvoai-authentication.yml
+      scopes: scopes/duvoai-scopes.yml
+      conventions: conventions/duvoai-conventions.yml
+      errors: errors/duvoai-problem-types.yml
+      lifecycle: lifecycle/duvoai-lifecycle.yml
+      webhooks: asyncapi/duvoai-webhooks.yml
+      mcp: mcp/duvoai-mcp.yml
+      data_model: data-model/duvoai-data-model.yml
+      agentic_access: agentic-access/duvoai-agentic-access.yml
+- target: $
+  update:
+    servers:
+    - url: https://api.duvo.ai
+      description: Production server
+- target: $.components.securitySchemes
+  update:
+    enterpriseOAuth:
+      type: oauth2
+      description: >-
+        Enterprise workspaces may authenticate via OAuth 2.0 client-credentials
+        against https://login.duvo.ai/ (documented in auth.md; not in the base spec).
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.duvo.ai/oauth/token
+          scopes:
+            runs:read: Inspect run status, messages, tool calls, and audit events.
+            runs:write: Start, pause, resume, or replay runs.
+            queues:write: Create and update queue cases.
+            approvals:write: Respond to human approval requests.
+            files:read: Read files attached to authorized runs or cases.
+            sandboxes:write: Request governed browser, file, or desktop execution.
+            webhooks:manage: Manage webhook subscriptions.
+            mcp:call: Invoke the hosted Duvo MCP surface.

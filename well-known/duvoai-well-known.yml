@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: searched
+hosts:
+- host: https://www.duvo.ai
+  documents:
+  - path: /.well-known/agent.json
+    status: 200
+    file: duvoai-agent.json
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: duvoai-agent-card.json
+  - path: /.well-known/mcp/server-card.json
+    status: 200
+    file: duvoai-mcp-server-card.json
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://api.duvo.ai
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://login.duvo.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: duvoai-oauth-authorization-server.json
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: duvoai-openid-configuration.json

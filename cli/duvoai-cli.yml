@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.duvo.ai/cli.md
+docs:
+- https://www.duvo.ai/cli.md
+- https://docs.duvo.ai/cli
+name: duvo
+package: "@duvoai/cli"
+version: 1.31.0
+requirements: Node.js 22.22 or later
+install:
+- npm install -g @duvoai/cli
+- pnpm add -g @duvoai/cli
+- yarn global add @duvoai/cli
+- npx @duvoai/cli --help
+authentication:
+  interactive: duvo login
+  verify: duvo whoami
+  env:
+  - DUVO_API_KEY
+  - DUVO_PROFILE
+  - DUVO_API_BASE_URL
+global_flags:
+- "--json"
+commands:
+- group: runs
+  description: Manage agent executions.
+  subcommands:
+  - {name: start, flags: ["--agent"]}
+  - {name: get}
+  - {name: messages}
+  - {name: respond, flags: ["--approve"]}
+- group: cases
+  description: Handle queue cases.
+  subcommands:
+  - {name: list, flags: ["--queue"]}
+  - {name: create, flags: ["--queue", "--title", "--from-file"]}
+- group: sandboxes
+  description: Create isolated governed execution environments.
+  subcommands:
+  - {name: create}
+- group: api
+  description: Direct/arbitrary Duvo API access (escape hatch to any endpoint).

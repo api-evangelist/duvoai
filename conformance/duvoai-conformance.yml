@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/duvoai-openapi-original.json
+docs: https://www.duvo.ai/auth.md
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Enterprise OAuth 2.0 client-credentials documented; RFC 8414 authorization-server metadata at login.duvo.ai/.well-known/oauth-authorization-server.
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect discovery served at login.duvo.ai/.well-known/openid-configuration (jwks, userinfo, standard OIDC scopes).
+- id: rfc8414-oauth-as-metadata
+  conforms: true
+  evidence: well-known/duvoai-oauth-authorization-server.json returned 200.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on www.duvo.ai and api.duvo.ai.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses use application/json with a code/message/request_id envelope, not application/problem+json.
+- id: ietf-ratelimit-headers
+  conforms: true
+  evidence: Documents RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset / Retry-After response headers.
+- id: webhook-hmac-signing
+  conforms: true
+  evidence: Webhooks signed with an HMAC signature header verified against the raw request body with the workspace webhook secret.
+- id: mcp
+  conforms: true
+  evidence: Hosted streamable-http MCP server published (well-known/duvoai-mcp-server-card.json); listed in the MCP registry as io.github.duvoai/duvo.

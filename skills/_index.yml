@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/duvoai/skills
+license: MIT
+note: >-
+  Official Duvo Agent Skills, published by Duvo (taskcrew Inc.) at
+  github.com/duvoai/skills and saved verbatim. Also distributed as a Claude
+  Code plugin marketplace (.claude-plugin/marketplace.json in the source repo).
+api: openapi/duvoai-openapi-original.json
+skills:
+- file: duvoai-aop-writer.md
+  name: aop-writer
+  description: Draft, rewrite, or critique a Duvo Agent AOP in the canonical GOAL / STEPS / NOTES shape.
+- file: duvoai-connection-doctor.md
+  name: connection-doctor
+  description: Diagnose and health-check the Connections and credentials a Duvo Agent relies on via the public API.
+  operations: [getAgent, listAgentFolders]
+- file: duvoai-duvo-cli.md
+  name: duvo-cli
+  description: Drive the Duvo public API from the terminal via the `duvo` CLI (@duvoai/cli).
+- file: duvoai-improve-agent.md
+  name: improve-agent
+  description: Guided end-to-end loop to improve one Duvo Agent from its Runs.
+  operations: [getAgent, listRuns, getRun]
+- file: duvoai-improve-queue.md
+  name: improve-queue
+  description: Guided end-to-end loop to improve one Duvo Queue and its producer/consumer workflow.
+  operations: [getQueue, listQueues, createCases]
+- file: duvoai-run-debugger.md
+  name: run-debugger
+  description: Investigate why a Duvo Run failed or produced the wrong outcome, from its transcript and active Build.
+  operations: [getRun, listRunMessages]
+- file: duvoai-workflow-debugger.md
+  name: workflow-debugger
+  description: Audit an Agent or multi-Agent queue workflow across many Runs for systemic inefficiencies.
+  operations: [listRuns, getRun, getQueue]

@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.duvo.ai/api-reference.md
+docs:
+- https://www.duvo.ai/api-reference.md
+- https://www.duvo.ai/auth.md
+- https://www.duvo.ai/webhooks.md
+api_base: https://api.duvo.ai
+versioning:
+  style: uri-path
+  current: v2
+  note: All documented endpoints are namespaced under /v2/.
+authentication:
+  style: bearer
+  header: 'Authorization: Bearer <token>'
+  ref: authentication/duvoai-authentication.yml
+idempotency:
+  supported: true
+  context: >-
+    Webhook consumers must treat delivery as at-least-once and design handlers
+    idempotently, because retries of transient 5xx responses can duplicate
+    events. Server errors (500/502) are documented as safe to retry.
+  ref: https://www.duvo.ai/webhooks.md
+rate_limiting:
+  signaled: true
+  headers:
+  - RateLimit-Limit
+  - RateLimit-Remaining
+  - RateLimit-Reset
+  - Retry-After
+  behavior: 429 returned when exceeded; honor Retry-After.
+request_tracing:
+  field: request_id
+  location: error envelope (and correlatable across run messages/audit events)
+error_envelope:
+  media_type: application/json
+  fields: [code, message, request_id, details]
+  ref: errors/duvoai-problem-types.yml
+webhooks:
+  signing: HMAC signature header verified against raw body with the workspace webhook secret.
+  ref: asyncapi/duvoai-webhooks.yml

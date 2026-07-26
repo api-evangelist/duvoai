@@ -1,0 +1,81 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/duvoai-openapi-original.json
+note: >-
+  Entity graph derived from OpenAPI path nesting (parent/{id}/child) and tag
+  grouping. The spec exposes resource routing rather than rich component
+  schemas, so relationships are inferred from URL hierarchy. Action sub-routes
+  (publish, render, stop, move, ...) are excluded.
+entities:
+- name: organization
+  tag: Organizations
+- name: team
+  tag: Team
+  belongs_to: {entity: organization, via: orgId}
+- name: agent
+  tag: Agents
+  belongs_to: {entity: team, via: teamId}
+- name: agent_folder
+  tag: Agent Folders
+  belongs_to: {entity: team, via: teamId}
+- name: schedule
+  tag: Schedules
+  belongs_to: {entity: agent, via: agent_id}
+- name: revision
+  tag: Revisions
+  belongs_to: {entity: agent, via: agentId}
+  aka: build
+- name: run
+  tag: Runs
+  belongs_to:
+  - {entity: agent, via: agentId}
+  - {entity: case, via: case_id}
+  - {entity: team, via: teamId}
+- name: message
+  tag: Runs
+  belongs_to: {entity: run, via: run_id}
+- name: human_request
+  tag: Runs
+  belongs_to: {entity: run, via: run_id}
+- name: queue
+  tag: Queues
+  belongs_to: {entity: team, via: teamId}
+- name: case
+  tag: Cases
+  belongs_to: {entity: queue, via: queue_id}
+- name: sandbox
+  tag: Sandboxes
+- name: file
+  tag: Files
+  belongs_to:
+  - {entity: sandbox, via: sandbox_id}
+  - {entity: team, via: teamId}
+- name: connection
+  tag: Connections
+  belongs_to: {entity: team, via: teamId}
+- name: credential
+  tag: Credentials
+  belongs_to:
+  - {entity: connection, via: connection_id}
+  - {entity: revision, via: buildId}
+- name: secret
+  tag: Secrets
+- name: skill
+  tag: Skills
+  belongs_to: {entity: team, via: teamId}
+- name: integration
+  tag: Integrations
+  belongs_to: {entity: team, via: teamId}
+- name: artifact
+  tag: Duvo Pulse
+  aka: pulse_dashboard
+  belongs_to: {entity: team, via: teamId}
+- name: clarity_process
+  tag: Clarity
+  aka: process
+  belongs_to: {entity: organization, via: orgId}
+- name: member
+  tag: Organizations
+  belongs_to:
+  - {entity: organization, via: orgId}
+  - {entity: team, via: teamId}

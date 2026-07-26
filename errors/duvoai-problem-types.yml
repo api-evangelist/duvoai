@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/duvoai-openapi-original.json
+docs: https://www.duvo.ai/api-reference.md
+format: json
+envelope:
+  media_type: application/json
+  fields:
+  - code
+  - message
+  - request_id
+  - details
+  note: >-
+    Error responses are JSON (not RFC 9457 application/problem+json) and carry
+    `code`, `message`, `request_id`, and optional `details`. Every 4xx/5xx
+    response in the OpenAPI is documented as a "Default Response" with
+    application/json content.
+problems:
+- status: 400
+  title: Bad request
+  meaning: Malformed request body, parameters, or payload.
+  occurrences: 126
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid credential (bearer API key or OAuth access token).
+  occurrences: 210
+- status: 403
+  title: Forbidden
+  meaning: Insufficient scope or policy denial (error code `insufficient_scope`).
+  occurrences: 152
+- status: 404
+  title: Not found
+  meaning: The referenced resource (agent, run, case, queue, artifact, ...) does not exist.
+  occurrences: 169
+- status: 409
+  title: Conflict
+  meaning: State conflict — e.g. acting on a run/case in an incompatible state.
+  occurrences: 60
+- status: 413
+  title: Payload too large
+  meaning: Upload or request body exceeds the allowed size.
+  occurrences: 2
+- status: 422
+  title: Unprocessable entity
+  meaning: Validation failed on an otherwise well-formed request.
+  occurrences: 9
+- status: 500
+  title: Internal server error
+  meaning: Unexpected server-side failure; retry idempotently.
+  occurrences: 192
+- status: 502
+  title: Bad gateway
+  meaning: Upstream/gateway failure; retry transient errors.
+  occurrences: 1
