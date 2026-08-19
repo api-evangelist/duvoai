@@ -32,3 +32,10 @@ tools:
   description: Approve, reject, or answer a human approval request.
   read_only: false
   source_operation: openapi/duvoai-openapi-original.json#respondToHumanRequest
+deployment:
+  mode: remote
+  endpoint: https://api.duvo.ai/v2/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

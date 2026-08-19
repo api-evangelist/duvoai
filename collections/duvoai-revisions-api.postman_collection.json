@@ -1,0 +1,2281 @@
+{
+  "item": [
+    {
+      "id": "b5725028-58ec-4adc-91eb-7a3c19f62da6",
+      "name": "Revisions",
+      "description": {
+        "content": "Create and manage agent revisions — the underlying Setup for an Agent",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f23d1d0-4d1f-4036-8dea-28b4ce4aa25d",
+          "name": "Create Revision",
+          "request": {
+            "name": "Create Revision",
+            "description": {
+              "content": "Create a new revision for an existing agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "revisions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "agent_id",
+                  "description": "(Required) The agent's unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee0d1cbd-b4b9-4116-9474-93f0ab4820a1",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build\": {\n    \"id\": \"feb1e71b-2137-f695-d016-9118af14c3af\",\n    \"copilot_id\": \"66d03e78-e3b9-bd29-2383-da5db87039c0\",\n    \"agent_id\": \"2682d4a5-461e-bbb5-bc54-aaf43f21698b\",\n    \"name\": \"string\",\n    \"config\": {\n      \"version\": \"v1\",\n      \"data\": {\n        \"model\": \"string\",\n        \"tools\": \"\",\n        \"input\": \"string\",\n        \"temperature\": 1.1092022710525085,\n        \"max_output_tokens\": 5107.9244863757895,\n        \"top_p\": 0.5920445436682152,\n        \"store\": true,\n        \"text\": {\n          \"format\": {\n            \"type\": \"text\"\n          }\n        }\n      }\n    },\n    \"status\": \"string\",\n    \"revision_number\": 6796.907338895119,\n    \"parent_build_id\": \"string\",\n    \"created_by\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"revision_name\": \"string\",\n    \"revision_description\": \"string\",\n    \"created_by_name\": \"string\",\n    \"schedules\": [\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": false,\n        \"frequency\": \"every_15_minutes\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 377.7608145230793,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": false,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 3913719193719271,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": false,\n        \"frequency\": \"every_5_minutes\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 8983.352832528464,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": true,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 7554012610557360,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      }\n    ]\n  },\n  \"agent\": {\n    \"id\": \"c956c77f-d54f-9604-be74-42df644ccc3d\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "871c3c0f-83a1-4e08-9e5d-e52b5f32ad20",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3b730dd-b0b7-44bd-b11e-978c9f355128",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f632a14-6424-4f2b-9f6a-c9c2f28fc2bd",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa4f81e5-cbc2-49e6-9edb-2dd633e6007c",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47985d46-f6f5-45b5-ac5e-66e78d72a01e",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "732159ba-1bc0-4e1d-80a7-bd23ad507538",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"config\": {\n    \"version\": \"<string>\",\n    \"data\": {\n      \"models\": {\n        \"agent\": {\n          \"model\": \"<string>\"\n        },\n        \"browsing\": {\n          \"provider\": \"<string>\",\n          \"model\": \"<string>\"\n        }\n      },\n      \"input\": \"<string>\",\n      \"options\": {\n        \"browserProvider\": \"<string>\",\n        \"evaluationSchemaId\": \"<string>\",\n        \"benchmarkExpectedOutcomes\": [\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          },\n          {\n            \"description\": \"<string>\",\n            \"criteria\": \"<string>\"\n          }\n        ],\n        \"key_0\": {}\n      }\n    }\n  },\n  \"handover_target_ids\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"source_build_id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "303c9dcc-e0d1-4c49-9e62-a549fe1a7257",
+          "name": "List Agent Revisions",
+          "request": {
+            "name": "List Agent Revisions",
+            "description": {
+              "content": "List revisions for an agent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "revisions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of revisions per page (1-100, default 20)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Number of revisions to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "agent_id",
+                  "description": "(Required) The agent's unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df34de8a-98c2-473c-8b33-aaf2750af301",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"builds\": [\n    {\n      \"id\": \"44ff97dd-7d5e-2884-ca74-3c787d0bdd4e\",\n      \"copilot_id\": \"65672e8d-355e-caf0-e9d7-15510741a908\",\n      \"agent_id\": \"4ec58f05-c736-188b-6e74-b8a972b4fefb\",\n      \"name\": \"string\",\n      \"config\": {\n        \"version\": \"v1\",\n        \"data\": {\n          \"model\": \"string\",\n          \"tools\": \"\",\n          \"input\": \"string\",\n          \"temperature\": 1.9951593822278515,\n          \"max_output_tokens\": 506.9804987864971,\n          \"top_p\": 0.9302101547786016,\n          \"store\": false,\n          \"text\": {\n            \"format\": {\n              \"type\": \"text\"\n            }\n          }\n        }\n      },\n      \"status\": \"string\",\n      \"revision_number\": 213.91516465457005,\n      \"parent_build_id\": \"string\",\n      \"created_by\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"revision_name\": \"string\",\n      \"revision_description\": \"string\",\n      \"created_by_name\": \"string\",\n      \"schedules\": [\n        {\n          \"id\": \"string\",\n          \"build_id\": \"string\",\n          \"agent_id\": \"string\",\n          \"user_id\": \"string\",\n          \"enabled\": true,\n          \"frequency\": \"weekly\",\n          \"time\": \"string\",\n          \"timezone\": \"string\",\n          \"day\": \"string\",\n          \"day_of_month\": 9626.710976252383,\n          \"cron\": \"string\",\n          \"source\": \"string\",\n          \"task\": \"string\",\n          \"recurring\": true,\n          \"auto_disabled_at\": \"string\",\n          \"auto_disabled_reason\": \"string\",\n          \"consecutive_missing_connection_failures\": 7405020233505443,\n          \"first_missing_connection_failure_at\": \"string\",\n          \"last_missing_connection_failure_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"user_name\": \"string\",\n          \"user_email\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"build_id\": \"string\",\n          \"agent_id\": \"string\",\n          \"user_id\": \"string\",\n          \"enabled\": true,\n          \"frequency\": \"monthly\",\n          \"time\": \"string\",\n          \"timezone\": \"string\",\n          \"day\": \"string\",\n          \"day_of_month\": 771.053886733467,\n          \"cron\": \"string\",\n          \"source\": \"string\",\n          \"task\": \"string\",\n          \"recurring\": true,\n          \"auto_disabled_at\": \"string\",\n          \"auto_disabled_reason\": \"string\",\n          \"consecutive_missing_connection_failures\": 8058021517919966,\n          \"first_missing_connection_failure_at\": \"string\",\n          \"last_missing_connection_failure_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"user_name\": \"string\",\n          \"user_email\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"1bf0b518-4bba-564e-3de1-f4a0022ebc21\",\n      \"copilot_id\": \"cd82ae74-c65c-9654-36f6-89dc094a713d\",\n      \"agent_id\": \"1b55c64d-469e-bf84-d730-b7d7dac60e9e\",\n      \"name\": \"string\",\n      \"config\": {\n        \"version\": \"v1\",\n        \"data\": {\n          \"model\": \"string\",\n          \"tools\": \"\",\n          \"input\": \"string\",\n          \"temperature\": 0.4880708137983347,\n          \"max_output_tokens\": 5762.216478477278,\n          \"top_p\": 0.3158830767354124,\n          \"store\": false,\n          \"text\": {\n            \"format\": {\n              \"type\": \"text\"\n            }\n          }\n        }\n      },\n      \"status\": \"string\",\n      \"revision_number\": 8489.790740873112,\n      \"parent_build_id\": \"string\",\n      \"created_by\": \"string\",\n      \"created_at\": \"string\",\n      \"updated_at\": \"string\",\n      \"revision_name\": \"string\",\n      \"revision_description\": \"string\",\n      \"created_by_name\": \"string\",\n      \"schedules\": [\n        {\n          \"id\": \"string\",\n          \"build_id\": \"string\",\n          \"agent_id\": \"string\",\n          \"user_id\": \"string\",\n          \"enabled\": false,\n          \"frequency\": \"monthly\",\n          \"time\": \"string\",\n          \"timezone\": \"string\",\n          \"day\": \"string\",\n          \"day_of_month\": 1383.200631038256,\n          \"cron\": \"string\",\n          \"source\": \"string\",\n          \"task\": \"string\",\n          \"recurring\": false,\n          \"auto_disabled_at\": \"string\",\n          \"auto_disabled_reason\": \"string\",\n          \"consecutive_missing_connection_failures\": 1176995195436859,\n          \"first_missing_connection_failure_at\": \"string\",\n          \"last_missing_connection_failure_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"user_name\": \"string\",\n          \"user_email\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"build_id\": \"string\",\n          \"agent_id\": \"string\",\n          \"user_id\": \"string\",\n          \"enabled\": true,\n          \"frequency\": \"custom\",\n          \"time\": \"string\",\n          \"timezone\": \"string\",\n          \"day\": \"string\",\n          \"day_of_month\": 3819.401711552408,\n          \"cron\": \"string\",\n          \"source\": \"string\",\n          \"task\": \"string\",\n          \"recurring\": false,\n          \"auto_disabled_at\": \"string\",\n          \"auto_disabled_reason\": \"string\",\n          \"consecutive_missing_connection_failures\": 6374113405777084,\n          \"first_missing_connection_failure_at\": \"string\",\n          \"last_missing_connection_failure_at\": \"string\",\n          \"created_at\": \"string\",\n          \"updated_at\": \"string\",\n          \"user_name\": \"string\",\n          \"user_email\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"total\": 1927744031112703,\n  \"limit\": -5861755878399864,\n  \"offset\": -5862838357126248\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57af1eb9-4ef1-4c6e-acf7-f87e21de2397",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "504908c7-fe95-4798-843a-a31a831e1dad",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1337fdd5-e5e5-4cc0-8e7a-845af8065c33",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fae87e0-e199-418f-a908-4a97c6289206",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a9b8f92-f203-4f6c-af57-9b0745f36620",
+          "name": "Get Revision",
+          "request": {
+            "name": "Get Revision",
+            "description": {
+              "content": "Get a revision by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "agents",
+                ":agent_id",
+                "revisions",
+                ":build_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "agent_id",
+                  "description": "(Required) The agent's unique identifier"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "build_id",
+                  "description": "(Required) The build's unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6b40fe19-73d5-4711-82f0-90e55f726359",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build\": {\n    \"id\": \"750cbb74-f3f5-58b0-f502-bd14302e898b\",\n    \"copilot_id\": \"669fff0c-3cdc-e59f-4c87-420bb72ce1d8\",\n    \"agent_id\": \"40c77c09-e8cd-3e0e-a288-95648143436b\",\n    \"name\": \"string\",\n    \"config\": {\n      \"version\": \"v1\",\n      \"data\": {\n        \"model\": \"string\",\n        \"tools\": \"\",\n        \"input\": \"string\",\n        \"temperature\": 0.15844720808701074,\n        \"max_output_tokens\": 6230.043278962997,\n        \"top_p\": 0.1494456524684371,\n        \"store\": false,\n        \"text\": {\n          \"format\": {\n            \"type\": \"text\"\n          }\n        }\n      }\n    },\n    \"status\": \"string\",\n    \"revision_number\": 1910.7898696142456,\n    \"parent_build_id\": \"string\",\n    \"created_by\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"revision_name\": \"string\",\n    \"revision_description\": \"string\",\n    \"created_by_name\": \"string\",\n    \"schedules\": [\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": true,\n        \"frequency\": \"every_5_minutes\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 649.8129004226449,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": true,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 5832448448931070,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": false,\n        \"frequency\": \"workday\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 2152.9912242700366,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": true,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 2452418825612696,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "858fb289-6ed1-4358-81c0-fe5a46b52fc0",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1db2e3f2-69a5-4169-91d1-5b92ac5fada5",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87f29ddb-eb5c-45b7-9924-bf0da272e586",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ee58e83-4a54-4101-adae-8aa7dae74a63",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "agents",
+                    ":agent_id",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "agent_id",
+                      "description": "(Required) The agent's unique identifier"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "433288d8-ef3b-4e5e-8c5b-0d01b665627c",
+          "name": "Update Revision",
+          "request": {
+            "name": "Update Revision",
+            "description": {
+              "content": "Update a revision's configuration, name, description, or handover targets. Returns the updated revision.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "revisions",
+                ":build_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "build_id",
+                  "description": "(Required) The build's unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3cc8e5e4-8771-49c4-b6af-a7080a237598",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"build\": {\n    \"id\": \"0044138e-98d0-b029-2bd0-946adf4e255f\",\n    \"copilot_id\": \"431434bd-eb07-f20f-d1f3-5433917646a3\",\n    \"agent_id\": \"40712f1d-0c00-5341-2c07-1f20ba4cf666\",\n    \"name\": \"string\",\n    \"config\": {\n      \"version\": \"v1\",\n      \"data\": {\n        \"model\": \"string\",\n        \"tools\": \"\",\n        \"input\": \"string\",\n        \"temperature\": 1.7920450035629514,\n        \"max_output_tokens\": 5493.559162711079,\n        \"top_p\": 0.32799616669525644,\n        \"store\": true,\n        \"text\": {\n          \"format\": {\n            \"type\": \"text\"\n          }\n        }\n      }\n    },\n    \"status\": \"string\",\n    \"revision_number\": 2126.203561057394,\n    \"parent_build_id\": \"string\",\n    \"created_by\": \"string\",\n    \"created_at\": \"string\",\n    \"updated_at\": \"string\",\n    \"revision_name\": \"string\",\n    \"revision_description\": \"string\",\n    \"created_by_name\": \"string\",\n    \"schedules\": [\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": true,\n        \"frequency\": \"daily\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 9653.053085219386,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": false,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 3906036258468059,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"build_id\": \"string\",\n        \"agent_id\": \"string\",\n        \"user_id\": \"string\",\n        \"enabled\": false,\n        \"frequency\": \"every_5_minutes\",\n        \"time\": \"string\",\n        \"timezone\": \"string\",\n        \"day\": \"string\",\n        \"day_of_month\": 6319.522161736702,\n        \"cron\": \"string\",\n        \"source\": \"string\",\n        \"task\": \"string\",\n        \"recurring\": true,\n        \"auto_disabled_at\": \"string\",\n        \"auto_disabled_reason\": \"string\",\n        \"consecutive_missing_connection_failures\": 5758719912848841,\n        \"first_missing_connection_failure_at\": \"string\",\n        \"last_missing_connection_failure_at\": \"string\",\n        \"created_at\": \"string\",\n        \"updated_at\": \"string\",\n        \"user_name\": \"string\",\n        \"user_email\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd737a1a-9c59-4421-8339-c2df9be433da",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a6dbc34-f6c6-4244-a9fb-42c8299130fe",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4836c01e-e1fd-49f6-a75a-9f00413e38f1",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dacf676b-57e4-4957-94c1-71703099ee98",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21a29514-a5e7-4941-87b4-6e3afbf45926",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c21ddeeb-dd59-4da7-bb0f-de47b8ad5be4",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": {\n    \"key_0\": {}\n  },\n  \"handoverTargetIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ],\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "153fde3f-c80c-4bec-a716-a80fe91da1e9",
+          "name": "Promote Revision",
+          "request": {
+            "name": "Promote Revision",
+            "description": {
+              "content": "Promote a draft or historic revision to the live version. The live revision is the one used by triggers and new runs. Fails if the revision is already live, or if a draft revision still has an active builder run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "revisions",
+                ":build_id",
+                "promote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "build_id",
+                  "description": "(Required) The build's unique identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7bf6e116-7688-4903-b2af-19e50a0b6ff3",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "414cc60e-0fb1-411c-86ee-f0ba6bf51ad0",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54edd4ae-a9bc-4893-9b27-763bc3e370ab",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a11da0c3-def4-45e0-ae25-9d1ec8be53fa",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "442bac70-6655-4228-97a0-9679badee1e1",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e854231-5b04-4773-87c3-d9fa696ac432",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad4ddc0b-087c-4e2a-a678-233fd65a9e83",
+              "name": "Default Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "revisions",
+                    ":build_id",
+                    "promote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) The build's unique identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"revision_name\": \"<string>\",\n  \"revision_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.duvo.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d88a2518-887a-41e5-a0b9-c628e7dc3d4c",
+    "name": "Duvo Public Agent Folders Revisions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API for programmatic access to Duvo. Authenticate with API keys created in the Duvo dashboard.",
+      "type": "text/plain"
+    }
+  }
+}
