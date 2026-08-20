@@ -43,6 +43,16 @@ tags:
 - MCP
 - Enterprise Operations
 - SAP Migration
+- Workflows
+tags_raw:
+- Company
+- Ai Ml
+- Process Intelligence
+- Automation
+- Agents
+- MCP
+- Enterprise Operations
+- SAP Migration
 - Workflow
 apis:
 - aid: duvoai:duvoai-agent-folders-api
@@ -159,6 +169,8 @@ apis:
   humanURL: https://www.duvo.ai/developers
   baseURL: https://api.duvo.ai
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -169,6 +181,8 @@ apis:
   humanURL: https://www.duvo.ai/developers
   baseURL: https://api.duvo.ai
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -189,6 +203,8 @@ apis:
   humanURL: https://www.duvo.ai/developers
   baseURL: https://api.duvo.ai
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
